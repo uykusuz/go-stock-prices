@@ -1,0 +1,4 @@
+.vscode
+.env
+go-stock-prices
+golint-report.out
