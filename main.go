@@ -78,6 +78,10 @@ func run(ctx context.Context, symbol string, from string, to string, useMockFinD
 		return errors.Wrap(err, "failed to retrieve candles")
 	}
 
+	if len(candles) < 1 {
+		return fmt.Errorf("no data for the given time frame")
+	}
+
 	performance, err := algos.CalculatePerformance(candles, symbol, fromDate, toDate)
 	if err != nil {
 		return err
